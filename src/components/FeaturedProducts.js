@@ -32,6 +32,9 @@ const FeaturedProducts = () => {
           <Product {...product} id={product.id} />
         ))}
       </div>
+      <Link to="/products" className="btn">
+        Shop Now
+      </Link>
     </Wrapper>
   );
 };
