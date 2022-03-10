@@ -9,21 +9,7 @@ import { useProductsContext } from "../context/products_context";
 import { useUserContext } from "../context/user_context";
 
 const Nav = () => {
-  const [showLinks, setShowLinks] = useState(false);
-  const linksContainerRef = useRef(null);
-  const linksRef = useRef(null);
-  const toggleLinks = () => {
-    setShowLinks(!showLinks);
-  };
-
-  // useEffect(() => {
-  //   const linksHeight = linksRef.current.getBoundingClientRect().height;
-  //   if (showLinks) {
-  //     linksContainerRef.current.style.height = `${linksHeight}px`;
-  //   } else {
-  //     linksContainerRef.current.style.height = "0px";
-  //   }
-  // }, [showLinks]);
+  const { openSidebar } = useProductsContext();
 
   return (
     <NavContainer>
@@ -32,7 +18,7 @@ const Nav = () => {
           <Link to="/">
             <img src={logo} alt="logo" />
           </Link>
-          <button type="button" className="nav-toggle" onClick={toggleLinks}>
+          <button type="button" className="nav-toggle" onClick={openSidebar}>
             <FaBars />
           </button>
         </div>
