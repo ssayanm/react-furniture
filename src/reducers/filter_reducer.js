@@ -17,8 +17,8 @@ const filter_reducer = (state, action) => {
 
       return {
         ...state,
-        filtered_products: [...action.payload],
         all_products: [...action.payload],
+        filtered_products: [...action.payload],
         filters: {
           ...state.filters,
           max_price: maxPrice,
@@ -78,7 +78,6 @@ const filter_reducer = (state, action) => {
     case FILTER_PRODUCTS:
       return {
         ...state,
-        filters: { ...state },
       };
 
     default:
