@@ -1,5 +1,3 @@
-// domain/.netlify/functions/create-payment-intent
-
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -17,14 +15,10 @@ exports.handler = async function (event, context) {
     // Create a PaymentIntent with the order amount and currency
     const paymentIntent = await stripe.paymentIntents.create({
       amount: calculateOrderAmount(),
-      currency: "usd",
+      currency: "inr",
     });
     return {
       statusCode: 200,
-      headers: {
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Headers": "Content-Type",
-      },
       body: JSON.stringify({ clientSecret: paymentIntent.client_secret }),
     };
   } catch (error) {
